@@ -10,6 +10,8 @@
 const { Client } = require("@notionhq/client")
 const { Octokit } = require("octokit")
 const _ = require("lodash")
+const dotenv = require('dotenv');
+dotenv.config();
 
 const octokit = new Octokit({ auth: process.env.PERSONAL_GITHUB_ACCESS_KEY })
 const notion = new Client({ auth: process.env.NOTION_KEY })
@@ -217,5 +219,8 @@ function getPropertiesFromIssue(issue) {
     "Issue URL": {
       url,
     },
+    // "Person": {
+    //   created_by: { person : { email: "lux1937@inha.edu" } },
+    // }
   }
 }
